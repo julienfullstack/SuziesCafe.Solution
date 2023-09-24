@@ -45,6 +45,37 @@ namespace SuziesCafe.Tests
 
     }
 
+        [TestMethod]
+    public void SetElements_SetOrderElements()
+    {
+      //Arrange
+      string title = "result";
+      string description = "test";
+      int price = 0;
+      string date = "";
+      Order newOrder = new Order(title, description, price, date);
+
+      //Act
+      string updatedTitle = "result";
+      string updatedDescription = "result";
+      int updatedPrice = 0;
+      string updatedDate = "";
+      newOrder.Title = updatedTitle;
+      newOrder.Description = updatedDescription;
+      newOrder.Price = updatedPrice;
+      newOrder.Date = updatedDate;
+      string titleResult = newOrder.Title;
+      string descriptionResult = newOrder.Description;
+      int priceResult = newOrder.Price;
+      string dateResult = newOrder.Date;
+
+      //Assert
+      Assert.AreEqual(updatedTitle, titleResult);
+      Assert.AreEqual(updatedDescription, descriptionResult);
+      Assert.AreEqual(updatedPrice, priceResult);
+      Assert.AreEqual(updatedDate, dateResult);
+    }
+
 
   }
 }
