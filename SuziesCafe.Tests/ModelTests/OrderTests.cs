@@ -15,11 +15,36 @@ namespace SuziesCafe.Tests
     }
 
     [TestMethod]
-    public void ItemConstructor_CreatesInstanceOfOrder_Order()
+    public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("test");
+      Order newOrder = new Order("test", "test", 1, "test");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
+
+    [TestMethod]
+    public void GetDescription_ReturnsDetails_String()
+    {
+      //Arrange
+      string title = "";
+      string description = "";
+      int price = 0;
+      string date = "";
+
+      //Act
+      Order newOrder = new Order(title, description, price, date);
+       string titleResult = newOrder.Title;
+       string descriptionResult = newOrder.Description;
+      int priceResult = newOrder.Price;
+      string dateResult = newOrder.Date;
+
+      //Assert
+      Assert.AreEqual(title, titleResult);
+      Assert.AreEqual(description, descriptionResult);
+      Assert.AreEqual(price, priceResult);
+      Assert.AreEqual(date, dateResult);
+
+    }
+
 
   }
 }

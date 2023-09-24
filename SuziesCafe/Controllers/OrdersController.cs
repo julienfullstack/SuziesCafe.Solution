@@ -6,6 +6,6 @@ namespace SuziesCafe.Controllers
 {
   public class OrdersController : Controller
   {
-
+    
   }
 }
