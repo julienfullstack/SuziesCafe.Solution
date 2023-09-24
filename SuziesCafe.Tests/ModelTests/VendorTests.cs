@@ -69,5 +69,26 @@ namespace SuziesCafe.Tests
     Assert.AreEqual(newVendor2, result);
   }
 
+  [TestMethod]
+  public void AddOrder_AssociatesOrderWithVendor_OrderList()
+  {
+    //Arrange
+    string title = "title";
+    string description = "description";
+    int price = 0;
+    string date = "date";
+    Order newOrder = new Order(title, description, price, date);
+    List<Order> newList = new List<Order> { newOrder };
+    string name = "Vendor";
+    Vendor newVendor = new Vendor(name, description);
+    newVendor.AddOrder(newOrder);
+
+    //Act
+    List<Order> result = newVendor.Orders;
+
+    //Assert
+    CollectionAssert.AreEqual(newList, result);
+  }
+
   }
 }
