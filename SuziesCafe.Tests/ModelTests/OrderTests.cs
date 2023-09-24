@@ -76,6 +76,80 @@ namespace SuziesCafe.Tests
       Assert.AreEqual(updatedDate, dateResult);
     }
 
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_OrderList()
+    {
+      // Arrange
+      List<Order> newList = new List<Order> { };
+
+      // Act
+      List<Order> result = Order.GetAll();
+
+      // Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+        [TestMethod]
+    public void GetAll_ReturnsOrders_OrderList()
+    {
+      //Arrange
+      string title01 = "title01";
+      string title02 = "title02";
+      string description01 = "description01";
+      string description02 = "description02";
+      int price01 = 0;
+      int price02 = 1;
+      string date01 = "date01";
+      string date02 = "date02";
+      Order newOrder1 = new Order(title01, description01, price01, date01);
+      Order newOrder2 = new Order(title02, description02, price02, date02);
+      List<Order> newList = new List<Order> { newOrder1, newOrder2 };
+
+      //Act
+      List<Order> result = Order.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+        [TestMethod]
+    public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      //Arrange
+      string title = "title1";
+      string description = "description1";
+      int price = 0;
+      string date = "date1";
+      Order newOrder = new Order(title, description, price, date);
+
+      //Act
+      int result = newOrder.Id;
+
+      //Assert
+      Assert.AreEqual(1, result);
+    }
+
+      [TestMethod]
+  public void Find_ReturnsCorrectOrder_Order()
+  {
+    //Arrange
+    string title01 = "title01";
+    string title02 = "title02";
+    string description01 = "description01";
+    string description02 = "description02";
+    int price01 = 0;
+    int price02 = 1;
+    string date01 = "date01";
+    string date02 = "date02";
+    Order newOrder1 = new Order(title01, description01, price01, date01);
+    Order newOrder2 = new Order(title02, description02, price02, date02);
+
+    //Act
+    Order result = Order.Find(2);
+
+    //Assert
+    Assert.AreEqual(newOrder2, result);
+  }
 
   }
 }
